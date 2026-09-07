@@ -1,5 +1,4 @@
 package no.oslomet.cs.algdat;
-
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -7,10 +6,18 @@ public class Oblig1 {
     public static void main(String[] args) {
         int [] a = new int[] {1,2,3,4,5,6,7,8,9};
         int [] b = new int[] {9,8,7,6,5,4,3,2,1};
-        System.out.println(maks(a));
-        System.out.println(maks(b));
-        System.out.println(ombyttinger(a));
-        System.out.println(ombyttinger(b));
+        int [] c = new int[] {1,4,5,6,7,3,4,6,3};
+        int [] d = new int[] {2,1};
+        int [] e = new int[] {1,3,2};
+        int [] f = new int[] {4,3,2,1};
+        int [] g = new int[] {1,2,3,4,};
+
+        //System.out.println(maks(a));
+        //System.out.println(maks(b));
+        System.out.println(antallUlikeSortert(a));
+        System.out.println(antallUlikeSortert(b));
+        System.out.println(antallUlikeSortert(c));
+
     }
 
     private Oblig1() {}
@@ -25,7 +32,7 @@ public class Oblig1 {
     public static int maks(int[] a) {
         //throw new UnsupportedOperationException();
      if(a.length == 0){
-         throw new NoSuchElementException("Arrayen er tom");
+         throw new NoSuchElementException("listen er tom");
      }
         for(int i = 0; i < a.length-1; i++){
             if(a[i]>a[i+1]){
@@ -40,8 +47,8 @@ public class Oblig1 {
     public static int ombyttinger(int[] a) {
         //throw new UnsupportedOperationException();
         int count = 0;
-        for(int i = 0; i < a.length-1; i++){
-            if(a[i]>a[i+1]){
+        for(int i = 0; i < a.length-1; i++){ //
+            if(a[i]>a[i+1]){ //n-1
                 int temp = a[i];
                 a[i+1]= a[i];
                 a[i]= temp;
@@ -51,18 +58,23 @@ public class Oblig1 {
         return count;
     }
 
-
-
-
-
-
-
-
-
-
-
     // Oppgave 2
-    public static int antallUlikeSortert(int[] a) {throw new UnsupportedOperationException();}
+    public static int antallUlikeSortert(int[] a) {
+        //throw new UnsupportedOperationException();
+        int count = 1;
+        if(a.length == 0){
+            return 0;
+        }
+        for(int i = 0; i<a.length-1; i++){
+            if(a[i]>a[i+1]){
+                throw new IllegalStateException("tabellen er ikke sortert stigende");
+            }
+            if(a[i]<a[i+1]){
+                count++;
+            }
+        }
+        return count;
+    }
 
     // Oppgave 3
     public static int antallUlikeUsortert(int[] a) {throw new UnsupportedOperationException();}
