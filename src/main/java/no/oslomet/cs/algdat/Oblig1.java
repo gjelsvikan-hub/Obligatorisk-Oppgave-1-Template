@@ -1,4 +1,5 @@
 package no.oslomet.cs.algdat;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -11,10 +12,13 @@ public class Oblig1 {
         int [] e = new int[] {1,3,2};
         int [] f = new int[] {4,3,2,1};
         int [] g = new int[] {1,2,3,4,};
+        int[] a2 = new int[] {6, 10, 9, 4, 1, 3, 8, 5, 2, 7};
 
         //System.out.println(maks(a));
         //System.out.println(maks(b));
-        System.out.println(antallUlikeUsortert(d));
+        //System.out.println(antallUlikeUsortert(d));
+        sorter(a2,3,8);
+        System.out.println(Arrays.toString(a2));
 
 
     }
@@ -97,11 +101,23 @@ public class Oblig1 {
     // Oppgave 4
     public static void sorter(int[] a, int fra, int til) {
         //throw new UnsupportedOperationException();
-
+        if(fra<0){
+            throw new IndexOutOfBoundsException("fra er negativ");
+        } else if (til> a.length) {
+            throw new IndexOutOfBoundsException("til er større enn tabellens lengde");
+        }
+        for (int i = fra; i < til; i++) {
+            if(a[i]>a[i+1]){
+                int temp = a[i];
+                a[i] = a[i+1];
+                a[i+1] = temp;
+            }
+        }
     }
 
     // Oppgave 5
-    public static void delsortering(int[] a) {throw new UnsupportedOperationException();}
+    public static void delsortering(int[] a) {
+        //throw new UnsupportedOperationException();}
 
     // Oppgave 6
     public static void rotasjon(char[] a) {throw new UnsupportedOperationException();}
