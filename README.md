@@ -17,6 +17,13 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 
 ### Oppgave 1
 I oppgave 1 gikk vi frem ved å...
+a) Det blir gjort n-1 sammenligninger, der hvert tall sammenlignes med det neste, utenom det første.
+
+b) Når listen er sortert eller tilnærmet sortert kronologisk blir det færrest bytter. 
+
+c) Når listen med tall er usortert eller synkende blir det flest bytter. 
+
+d) 
 
 ### Oppgave 2
 I oppgave 2 gikk vi frem ved å...

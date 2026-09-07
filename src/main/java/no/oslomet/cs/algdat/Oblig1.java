@@ -7,16 +7,15 @@ public class Oblig1 {
         int [] a = new int[] {1,2,3,4,5,6,7,8,9};
         int [] b = new int[] {9,8,7,6,5,4,3,2,1};
         int [] c = new int[] {1,4,5,6,7,3,4,6,3};
-        int [] d = new int[] {2,1};
+        int [] d = new int[] {1,1,2,2,3,3,4,4};
         int [] e = new int[] {1,3,2};
         int [] f = new int[] {4,3,2,1};
         int [] g = new int[] {1,2,3,4,};
 
         //System.out.println(maks(a));
         //System.out.println(maks(b));
-        System.out.println(antallUlikeSortert(a));
-        System.out.println(antallUlikeSortert(b));
-        System.out.println(antallUlikeSortert(c));
+        System.out.println(antallUlikeUsortert(d));
+
 
     }
 
@@ -77,10 +76,29 @@ public class Oblig1 {
     }
 
     // Oppgave 3
-    public static int antallUlikeUsortert(int[] a) {throw new UnsupportedOperationException();}
+    public static int antallUlikeUsortert(int[] a) {
+        //throw new UnsupportedOperationException();
+        int count = 0;
+        for (int i = 0; i < a.length-1; i++) {
+            boolean reoccuring = false;
+            for (int j = 0; j < i; j++) {
+                if (a[i] == a[j]){
+                    reoccuring = true;
+                    break;
+                }
+            }
+            if(!reoccuring){
+                count ++;
+            }
+        }
+        return count;
+    }
 
     // Oppgave 4
-    public static void sorter(int[] a, int fra, int til) {throw new UnsupportedOperationException();}
+    public static void sorter(int[] a, int fra, int til) {
+        //throw new UnsupportedOperationException();
+
+    }
 
     // Oppgave 5
     public static void delsortering(int[] a) {throw new UnsupportedOperationException();}
