@@ -21,14 +21,15 @@ public class Oblig1 {
         System.out.println(Arrays.toString(a2));
 
 
+
     }
 
     private Oblig1() {}
 
     // Oppgave 0
     public static int gruppeMedlemmer() {
-        throw new UnsupportedOperationException();
-        // Skal returne hvor mange som er i gruppa deres.
+        //throw new UnsupportedOperationException();
+        return 1;
     }
 
     // Oppgave 1
@@ -97,7 +98,6 @@ public class Oblig1 {
         }
         return count;
     }
-
     // Oppgave 4
     public static void sorter(int[] a, int fra, int til) {
         //throw new UnsupportedOperationException();
@@ -106,18 +106,43 @@ public class Oblig1 {
         } else if (til> a.length) {
             throw new IndexOutOfBoundsException("til er større enn tabellens lengde");
         }
-        for (int i = fra; i < til; i++) {
-            if(a[i]>a[i+1]){
-                int temp = a[i];
-                a[i] = a[i+1];
-                a[i+1] = temp;
-            }
+        if( fra < til) {
+            int p = partition(a, fra, til);
+            sorter(a,fra,p-1);
+            sorter(a,p+1,til);
         }
     }
+    private static void change(int[] a, int i, int j){
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+private static int partition(int [] a, int left, int right){
+        int pivot = a[right];
+        int i = left - 1;
+        for(int j = left; j < right; j++){
+            if(a[j] <= pivot){
+                i++;
+               change(a,i,j);
+            }
+        }
+       change(a,i +1, right);
+        return i + 1;
+}
 
     // Oppgave 5
     public static void delsortering(int[] a) {
-        //throw new UnsupportedOperationException();}
+        //throw new UnsupportedOperationException();
+        int odd = 0; //posisjon til oddetall
+        for (int i = 0; i < a.length; i++) {
+            if(!(a[i]%2==0)){  //bytter posisjon på partall og oddetall, legger oddetall til venste i listen
+               change(a,odd,i);
+               odd++;
+            }
+        }
+        sorter(a, 0,odd-1);
+        sorter(a,odd,a.length);
+    }
 
     // Oppgave 6
     public static void rotasjon(char[] a) {throw new UnsupportedOperationException();}
