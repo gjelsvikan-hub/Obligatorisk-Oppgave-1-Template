@@ -152,12 +152,16 @@ private static int partition(int [] a, int left, int right){
                odd++;
             }
         }
-        sorter(a, 0,odd-1);
+        sorter(a, 0,odd);
         sorter(a,odd,a.length);
     }
 
     // Oppgave 6
-    public static void rotasjon(char[] a) {throw new UnsupportedOperationException();}
+    public static void rotasjon(char[] a) {
+        //throw new UnsupportedOperationException();
+
+
+    }
 
     // Oppgave 7
     public static void rotasjon(char[] a, int k) {throw new UnsupportedOperationException();}
