@@ -13,7 +13,9 @@ public class Oblig1 {
         int [] f = new int[] {4,3,2,1};
         int [] g = new int[] {1,2,3,4,};
         int[] a2 = new int[] {6, 10, 9, 4, 1, 3, 8, 5, 2, 7};
+        int[] b2 = {5, 2, 8, 4, 7, 6};
 
+        System.out.println(maks(b2));
         //System.out.println(maks(a));
         //System.out.println(maks(b));
         //System.out.println(antallUlikeUsortert(d));
@@ -35,17 +37,20 @@ public class Oblig1 {
     // Oppgave 1
     public static int maks(int[] a) {
         //throw new UnsupportedOperationException();
-     if(a.length == 0){
-         throw new NoSuchElementException("listen er tom");
-     }
-        for(int i = 0; i < a.length-1; i++){
-            if(a[i]>a[i+1]){
-                int temp = a[i];
-                a[i+1]= a[i];
-                a[i]= temp;
+        if (a.length < 1) {
+            throw new NoSuchElementException("listen er tom");
+        }
+        for (int i = 0; i < a.length - 1; i++) {
+            if (a[i] > a[i + 1]) {
+                change(a,i,i+1);
             }
         }
-        return a[a.length-1];
+        return a[a.length - 1];
+    }
+    private static void change(int[] a, int i, int j){
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
     }
 
     public static int ombyttinger(int[] a) {
@@ -112,11 +117,7 @@ public class Oblig1 {
             sorter(a,p+1,til);
         }
     }
-    private static void change(int[] a, int i, int j){
-        int temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
-    }
+
 private static int partition(int [] a, int left, int right){
         int pivot = a[right];
         int i = left - 1;
