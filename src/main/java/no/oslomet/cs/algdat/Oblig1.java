@@ -88,6 +88,12 @@ public class Oblig1 {
     // Oppgave 3
     public static int antallUlikeUsortert(int[] a) {
         //throw new UnsupportedOperationException();
+        if(a == null ){
+            throw new NoSuchElementException("listen er null");
+        }
+        if(a.length == 0){
+            return 0;
+        }
         int count = 1;
         for (int i = 1; i < a.length; i++) {
             boolean reoccuring = false;
@@ -106,18 +112,23 @@ public class Oblig1 {
     // Oppgave 4
     public static void sorter(int[] a, int fra, int til) {
         //throw new UnsupportedOperationException();
-        if(fra<0){
+        if(a == null) {
+            throw new NullPointerException("Arrayet er null");
+        }
+        if(fra < 0 ){
             throw new IndexOutOfBoundsException("fra er negativ");
-        } else if (til> a.length) {
+        }
+        if (til > a.length) {
             throw new IndexOutOfBoundsException("til er større enn tabellens lengde");
         }
-        if( fra < til) {
-            int p = partition(a, fra, til);
-            sorter(a,fra,p-1);
-            sorter(a,p+1,til);
+        if(til - fra <= 1){
+            return;
         }
-    }
+        int p = partition(a, fra, til -1);
+        sorter(a,fra,p);
+        sorter(a,p+1,til);
 
+    }
 private static int partition(int [] a, int left, int right){
         int pivot = a[right];
         int i = left - 1;
@@ -127,7 +138,7 @@ private static int partition(int [] a, int left, int right){
                change(a,i,j);
             }
         }
-       change(a,i +1, right);
+       change(a,i + 1, right);
         return i + 1;
 }
 
