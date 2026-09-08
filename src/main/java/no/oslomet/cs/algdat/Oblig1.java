@@ -159,9 +159,18 @@ private static int partition(int [] a, int left, int right){
     // Oppgave 6
     public static void rotasjon(char[] a) {
         //throw new UnsupportedOperationException();
+        int rotate = 1;
+        int n = a.length;
+        if(n<2){
+            return;
+        }
+        char[] b = Arrays.copyOfRange(a,n-rotate,n);
+        for (int i = n-1; i >= rotate; i--) {
+            a[i] = a[i-rotate];
+        }
+        System.arraycopy(b,0,a,0,rotate);
+        }
 
-
-    }
 
     // Oppgave 7
     public static void rotasjon(char[] a, int k) {throw new UnsupportedOperationException();}
