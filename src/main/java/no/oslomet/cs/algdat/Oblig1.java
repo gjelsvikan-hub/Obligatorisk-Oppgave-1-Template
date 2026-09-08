@@ -88,8 +88,8 @@ public class Oblig1 {
     // Oppgave 3
     public static int antallUlikeUsortert(int[] a) {
         //throw new UnsupportedOperationException();
-        int count = 0;
-        for (int i = 0; i < a.length-1; i++) {
+        int count = 1;
+        for (int i = 1; i < a.length; i++) {
             boolean reoccuring = false;
             for (int j = 0; j < i; j++) {
                 if (a[i] == a[j]){
