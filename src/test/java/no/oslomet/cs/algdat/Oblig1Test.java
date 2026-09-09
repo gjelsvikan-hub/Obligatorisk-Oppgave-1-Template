@@ -408,7 +408,7 @@ class Oppgave8Tests {
 
     @Test
     void flettTabellLengre() {
-        assertEquals("ALGORITMER OG DATASTRUKTUKER", Oblig1.flett("AM ", "L", "GEDS", "ORATKKR", "", "R TRTE", "IO", "TGAUU"), "Metoden gir feil på lengre tabell strenger.");
+        assertEquals("ALGORITMER OG DATASTRUKTURER", Oblig1.flett("AM ", "L", "GEDS", "ORATKRR", "", "R TRTE", "IO", "TGAUU"), "Metoden gir feil på lengre tabell strenger.");
     }
 }
 

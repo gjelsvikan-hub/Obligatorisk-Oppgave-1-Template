@@ -5,23 +5,6 @@ import java.util.NoSuchElementException;
 public class Oblig1 {
 
     public static void main(String[] args) {
-        int [] a = new int[] {1,2,3,4,5,6,7,8,9};
-        int [] b = new int[] {9,8,7,6,5,4,3,2,1};
-        int [] c = new int[] {1,4,5,6,7,3,4,6,3};
-        int [] d = new int[] {1,1,2,2,3,3,4,4};
-        int [] e = new int[] {1,3,2};
-        int [] f = new int[] {4,3,2,1};
-        int [] g = new int[] {1,2,3,4,};
-        int[] a2 = new int[] {6, 10, 9, 4, 1, 3, 8, 5, 2, 7};
-        int[] b2 = {5, 2, 8, 4, 7, 6};
-
-        System.out.println(maks(b2));
-        //System.out.println(maks(a));
-        //System.out.println(maks(b));
-        //System.out.println(antallUlikeUsortert(d));
-        sorter(a2,3,8);
-        System.out.println(Arrays.toString(a2));
-
 
 
     }
@@ -176,9 +159,59 @@ private static int partition(int [] a, int left, int right){
     public static void rotasjon(char[] a, int k) {throw new UnsupportedOperationException();}
 
     // Oppgave 8
-    public static String flett(String s, String t) {throw new UnsupportedOperationException();}
+    public static String flett(String s, String t) {
+        //throw new UnsupportedOperationException();
+        if(s.isEmpty()){
+            return "";
+        }
+        if(s == null) {
+            throw new NullPointerException("listen er null");
+        }
+        if(s.equals("") && t.equals("")){
+            throw  new NullPointerException("s eller t er tomme");
+        }
+        String u = "";
+        int i = 0, j = 0;
 
-    public static String flett(String... s) {throw new UnsupportedOperationException();}
+        while(i < s.length() && j < t.length()){
+           u+= s.charAt(i++);
+           u+= t.charAt(j++);
+        }
+        while(i < s.length()){
+            u+= s.charAt(i++);
+        }
+        while(j < t.length()){
+            u+= t.charAt(j++);
+        }
+        return u;
+
+    }
+
+    public static String flett(String... s) {
+        if(s.length == 0){
+            return "";
+        }
+        if(s == null){
+            throw  new NullPointerException("listen er null");
+        }
+        // throw new UnsupportedOperationException();
+        String result = "";
+
+        int longest = 0;
+        for (String str : s){
+            if(str.length() > longest){
+                longest = str.length();
+            }
+        }
+        for(int i = 0; i < longest; i++){
+            for (String str : s){
+                if(i < str.length()){
+                    result += str.charAt(i);
+                }
+            }
+        }
+        return result;
+    }
 
     // Oppgave 9
     public static int[] indeksSortering(int[] a) {throw new UnsupportedOperationException();}
