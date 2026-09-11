@@ -4,11 +4,6 @@ import java.util.NoSuchElementException;
 
 public class Oblig1 {
 
-    public static void main(String[] args) {
-
-
-    }
-
     private Oblig1() {}
 
     // Oppgave 0
@@ -16,6 +11,15 @@ public class Oblig1 {
         //throw new UnsupportedOperationException();
         return 1;
     }
+
+    //a) Det blir gjort n-1 sammenligninger, der hvert tall sammenlignes med det neste, utenom det første.
+    //
+    //b) Når listen er sortert eller tilnærmet sortert kronologisk blir det færrest bytter.
+    //
+    //c) Når listen med tall er usortert eller synkende blir det flest bytter.
+    //
+    //d) For hvert par som sjekkes er sannsynligheten 1/2 for at de står i riktig posisjon, og man går igjennom arrayet n-1 ganger
+    //som medfører (1/2)*(n-1) = (n-1)/2.
 
     // Oppgave 1
     public static int maks(int[] a) {
@@ -53,10 +57,10 @@ public class Oblig1 {
     // Oppgave 2
     public static int antallUlikeSortert(int[] a) {
         //throw new UnsupportedOperationException();
-        int count = 1;
         if(a.length == 0){
             return 0;
         }
+        int count = 1;
         for(int i = 0; i<a.length-1; i++){
             if(a[i]>a[i+1]){
                 throw new IllegalStateException("tabellen er ikke sortert stigende");
@@ -71,9 +75,6 @@ public class Oblig1 {
     // Oppgave 3
     public static int antallUlikeUsortert(int[] a) {
         //throw new UnsupportedOperationException();
-        if(a == null ){
-            throw new NoSuchElementException("listen er null");
-        }
         if(a.length == 0){
             return 0;
         }
@@ -128,9 +129,9 @@ private static int partition(int [] a, int left, int right){
     // Oppgave 5
     public static void delsortering(int[] a) {
         //throw new UnsupportedOperationException();
-        int odd = 0; //posisjon til oddetall
+        int odd = 0;
         for (int i = 0; i < a.length; i++) {
-            if(!(a[i]%2==0)){  //bytter posisjon på partall og oddetall, legger oddetall til venste i listen
+            if(!(a[i]%2==0)){
                change(a,odd,i);
                odd++;
             }
@@ -161,14 +162,8 @@ private static int partition(int [] a, int left, int right){
     // Oppgave 8
     public static String flett(String s, String t) {
         //throw new UnsupportedOperationException();
-        if(s.isEmpty()){
+        if(s.isEmpty() && t.isEmpty()){
             return "";
-        }
-        if(s == null) {
-            throw new NullPointerException("listen er null");
-        }
-        if(s.equals("") && t.equals("")){
-            throw  new NullPointerException("s eller t er tomme");
         }
         String u = "";
         int i = 0, j = 0;
@@ -190,9 +185,6 @@ private static int partition(int [] a, int left, int right){
     public static String flett(String... s) {
         if(s.length == 0){
             return "";
-        }
-        if(s == null){
-            throw  new NullPointerException("listen er null");
         }
         // throw new UnsupportedOperationException();
         String result = "";
